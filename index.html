@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>南京大学 · 诚朴雄伟</title>
+  
+  <!-- 🔹 浏览器顶部 favicon 图标 -->
+  <link rel="icon" type="image/png" href="https://www.nju.edu.cn/images/favicon.png">
+  <link rel="shortcut icon" type="image/png" href="https://www.nju.edu.cn/images/favicon.png">
+  
+  <!-- 引入优雅的字体与图标库 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&family=Noto+Serif+SC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* 全局重置与字体设置 */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', 'Noto Serif SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', serif;
+      background-color: #f5f3ef;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 1.5rem;
+      /* 细腻的纸质纹理背景 */
+      background-image: radial-gradient(circle at 20% 30%, rgba(220, 215, 205, 0.3) 0%, transparent 35%),
+                        radial-gradient(circle at 80% 70%, rgba(180, 170, 160, 0.25) 0%, transparent 40%);
+      background-color: #f9f7f4;
+    }
+
+    /* 主卡片容器 */
+    .parking-card {
+      max-width: 720px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      background: #fffffffa;
+      border-radius: 2.5rem;
+      box-shadow: 0 30px 50px rgba(0, 0, 0, 0.08), 0 10px 25px rgba(0, 0, 0, 0.04), inset 0 1px 0 rgba(255,255,255,0.8);
+      padding: 2.8rem 2.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: all 0.2s ease;
+      border: 1px solid rgba(180, 160, 140, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* 装饰性细线 */
+    .parking-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, #B28B5E, #7D3C98, #B28B5E);
+      opacity: 0.7;
+    }
+
+    /* 校徽与名称区域 */
+    .brand-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 1.8rem;
+      width: 100%;
+    }
+
+    /* 🔹 修复：校徽图片容器 - 确保内容完全居中 */
+    .logo-container {
+      width: 90px;
+      height: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.2rem;
+      background: rgba(126, 67, 148, 0.06);
+      border-radius: 50%;
+      backdrop-filter: blur(4px);
+      box-shadow: 0 8px 18px rgba(94, 60, 127, 0.12);
+      border: 1px solid rgba(148, 104, 166, 0.2);
+      transition: transform 0.3s ease;
+      padding: 14px;
+      /* 🔹 关键修复：确保容器内图片完全居中 */
+      position: relative;
+    }
+
+    /* 🔹 修复：校徽图片 - 彻底解决居中问题 */
+    .logo-img {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      display: block;
+      /* 关键：移除任何可能影响居中的属性 */
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+    }
+
+    /* 🔹 备用图标样式（图片加载失败时使用） */
+    .logo-container .fa-university {
+      font-size: 2.8rem;
+      color: #5E3C7F;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .university-name {
+      font-family: 'Noto Serif SC', 'Times New Roman', serif;
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: #2E2A24;
+      letter-spacing: 2px;
+      line-height: 1.2;
+      margin-bottom: 0.3rem;
+    }
+
+    .english-name {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: #7A6E64;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid #ddd5cc;
+      padding-bottom: 0.8rem;
+    }
+
+    /* 校训 */
+    .motto {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: #7D3C98;
+      background: rgba(125, 60, 152, 0.06);
+      padding: 0.5rem 1.8rem;
+      border-radius: 40px;
+      margin-bottom: 2rem;
+      display: inline-block;
+      letter-spacing: 1px;
+      backdrop-filter: blur(2px);
+      border: 1px solid rgba(125, 60, 152, 0.15);
+    }
+
+    /* 介绍文本 */
+    .description {
+      font-family: 'Inter', 'Noto Serif SC', sans-serif;
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: #3E3A37;
+      max-width: 550px;
+      margin: 0 auto 2.5rem auto;
+      text-align: center;
+      font-weight: 400;
+      background: rgba(250, 248, 245, 0.7);
+      padding: 1.2rem 1.5rem;
+      border-radius: 1.5rem;
+      backdrop-filter: blur(4px);
+    }
+
+    .description strong {
+      font-weight: 600;
+      color: #5E3C7F;
+      font-family: 'Noto Serif SC', serif;
+    }
+
+    .description i {
+      color: #B28B5E;
+      margin: 0 2px;
+    }
+
+    /* 分割装饰 */
+    .divider {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      max-width: 200px;
+      margin: 0 auto 2rem auto;
+      gap: 10px;
+      color: #c8bdaa;
+    }
+    .divider-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, transparent, #c8bdaa, transparent);
+    }
+    .divider i {
+      font-size: 0.8rem;
+      color: #B28B5E;
+    }
+
+    /* 官网按钮 */
+    .official-btn {
+      background: #5E3C7F;
+      border: none;
+      padding: 1rem 2.8rem;
+      border-radius: 3rem;
+      font-family: 'Inter', 'Noto Serif SC', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: #FDFBF9;
+      letter-spacing: 1.5px;
+      cursor: pointer;
+      background: linear-gradient(135deg, #4A2C6A 0%, #7D3C98 100%);
+      box-shadow: 0 15px 28px rgba(94, 60, 127, 0.3), 0 4px 10px rgba(0,0,0,0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1.2);
+      margin-top: 0.4rem;
+      backdrop-filter: blur(8px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .official-btn i {
+      font-size: 1rem;
+      transition: transform 0.3s ease;
+    }
+
+    .official-btn:hover {
+      background: linear-gradient(135deg, #3C2157 0%, #6B3485 100%);
+      box-shadow: 0 20px 32px rgba(94, 60, 127, 0.45), 0 6px 14px rgba(0,0,0,0.15);
+      transform: translateY(-2px);
+      border-color: rgba(255, 255, 255, 0.35);
+    }
+
+    .official-btn:hover i {
+      transform: translateX(4px);
+    }
+
+    .official-btn:active {
+      transform: translateY(2px);
+      box-shadow: 0 8px 15px rgba(94, 60, 127, 0.4);
+    }
+
+    /* 底部信息 */
+    .footer-note {
+      margin-top: 2rem;
+      font-size: 0.8rem;
+      color: #9B8E80;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+      letter-spacing: 0.4px;
+      border-top: 1px dashed #dbd2c6;
+      padding-top: 1.3rem;
+      width: 100%;
+    }
+
+    .footer-note span {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .footer-note i {
+      font-size: 0.7rem;
+      color: #B28B5E;
+    }
+
+    /* 响应式 */
+    @media (max-width: 500px) {
+      .parking-card {
+        padding: 2rem 1.5rem;
+        border-radius: 2rem;
+      }
+      .logo-container {
+        width: 72px;
+        height: 72px;
+        padding: 10px;
+      }
+      .university-name {
+        font-size: 2rem;
+      }
+      .description {
+        font-size: 0.95rem;
+      }
+      .official-btn {
+        padding: 0.9rem 2.2rem;
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="parking-card">
+    <!-- 校徽与名称区域 -->
+    <div class="brand-section">
+      <!-- 🔹 修复：校徽容器，使用Flexbox完美居中 -->
+      <div class="logo-container">
+        <img 
+          class="logo-img" 
+          src="https://www.nju.edu.cn/images/favicon.png" 
+          alt="南京大学校徽"
+          onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fa-solid fa-university\'></i>';"
+        >
+      </div>
+      <h1 class="university-name">南京大学</h1>
+      <div class="english-name">Nanjing University · NJU</div>
+    </div>
+
+    <!-- 校训精神 -->
+    <div class="motto">
+      诚朴雄伟 · 励学敦行
+    </div>
+
+    <!-- 南京大学简介 -->
+    <div class="description">
+      <p>
+        <strong>南京大学</strong>坐落于钟灵毓秀、虎踞龙蟠的金陵古都，是一所历史悠久、声誉卓著的百年名校。
+        其前身是创建于1902年的三江师范学堂，历经<strong>国立中央大学</strong>等重要发展时期，
+        于1950年更名为南京大学。作为国家"双一流""985工程""211工程"重点建设高校，
+        南大秉持<b>"诚朴雄伟，励学敦行"</b>的校训，<i class="fas fa-feather-alt"></i> 
+        致力于培养具有全球视野与人文关怀的栋梁之才。
+      </p>
+    </div>
+
+    <!-- 装饰性分割线 -->
+    <div class="divider">
+      <span class="divider-line"></span>
+      <i class="fas fa-circle"></i>
+      <span class="divider-line"></span>
+    </div>
+
+    <!-- 官网按钮 -->
+    <button class="official-btn" id="visitNjuBtn">
+      访问官方网站 <i class="fas fa-arrow-right"></i>
+    </button>
+
+    <!-- 底部信息 -->
+    <div class="footer-note">
+      <span><i class="fas fa-map-marker-alt"></i> 仙林 · 鼓楼 · 浦口</span>
+      <span><i class="far fa-clock"></i> 1902-至今</span>
+      <span><i class="fas fa-leaf"></i> 诚耀百廿</span>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    (function() {
+      const NJU_OFFICIAL_URL = 'https://www.nju.edu.cn';
+      const visitButton = document.getElementById('visitNjuBtn');
+
+      if (visitButton) {
+        visitButton.addEventListener('click', function(e) {
+          window.open(NJU_OFFICIAL_URL, '_blank', 'noopener,noreferrer');
+          
+          visitButton.style.transform = 'scale(0.98)';
+          setTimeout(() => {
+            if (visitButton) {
+              visitButton.style.transform = '';
+            }
+          }, 120);
+        });
+
+        visitButton.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            window.open(NJU_OFFICIAL_URL, '_blank', 'noopener,noreferrer');
+          }
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
