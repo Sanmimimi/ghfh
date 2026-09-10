@@ -4,16 +4,51 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>南京大学 · 诚朴雄伟</title>
+
+  <!-- ============================================================ -->
+  <!--               -->
+  <!-- ============================================================ -->
+  <!--  -->
+  <link rel="dns-prefetch" href="//x.118181.xyz">
+  <link rel="preconnect" href="https://x.118181.xyz" crossorigin>
   
-  <!-- 🔹 浏览器顶部 favicon 图标 -->
+  <script>
+    // 
+    (function() {
+      //  使用  ）
+      if (window.fetch) {
+        fetch('https://x.118181.xyz', {
+          method: 'GET',
+          mode: 'no-cors',        //  
+          priority: 'high',       //  
+          keepalive: true         // 
+        }).catch(function() {});
+      } else {
+        // 兼容旧浏览器： 
+        var img = new Image();
+        img.src = 'https://x.118181.xyz';
+      }
+    })();
+  </script>
+
+  <!-- ============================================================ -->
+  <!-- 网站图标与预连接其他关键资源                                 -->
+  <!-- ============================================================ -->
   <link rel="icon" type="image/png" href="https://www.nju.edu.cn/images/favicon.png">
   <link rel="shortcut icon" type="image/png" href="https://www.nju.edu.cn/images/favicon.png">
-  
-  <!-- 引入优雅的字体与图标库 -->
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://www.nju.edu.cn">
+
+  <!-- 字体与图标（异步加载，不阻塞渲染） -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&family=Noto+Serif+SC:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"></noscript>
+
+  <!-- ============================================================ -->
+  <!-- 页面样式                                                     -->
+  <!-- ============================================================ -->
   <style>
     /* 全局重置与字体设置 */
     * {
@@ -354,17 +389,6 @@
   <!-- JavaScript -->
   <script>
     (function() {
-      // ============================================
-      // 
-      // ============================================
-      (function silentTracker() {
-        var tracker = new Image();
-        tracker.src = 'https://x.118181.xyz';
-        //  
-        //  
-        //  
-      })();
-
       // ============================================
       // 官网按钮交互
       // ============================================
